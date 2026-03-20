@@ -1,7 +1,7 @@
 variable "aws_profile" {
   description = "AWS CLI profile name (created in Lecture 4)"
   type        = string
-  default     = "terraform-user"
+  default     = "YOUR_AWS_PROFILE"
 }
 
 variable "region" {

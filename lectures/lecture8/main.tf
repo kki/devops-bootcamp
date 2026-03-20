@@ -3,7 +3,7 @@ terraform {
     bucket         = "terraform-state-YOUR_ACCOUNT_ID"
     key            = "lecture8/terraform.tfstate"
     region         = "us-west-2"
-    profile        = "terraform-user"   # имя профиля из Лекции 4
+    profile        = "YOUR_AWS_PROFILE"  # имя профиля из Лекции 4 (aws configure --profile ...)
     dynamodb_table = "terraform-state-lock"
     encrypt        = true
   }
