@@ -48,14 +48,13 @@ resource "aws_instance" "this" {
   vpc_security_group_ids = [aws_security_group.this.id]
 
   user_data = <<-EOF
-    #!/bin/bash
-    yum update -y
-    yum install -y nginx
-    systemctl start nginx
-    systemctl enable nginx
-    echo "<h1>Hello from Terraform!</h1><p>Deployed with IaC — Lecture 8</p>" \
-      > /usr/share/nginx/html/index.html
-  EOF
+#!/bin/bash
+yum update -y
+yum install -y nginx
+systemctl start nginx
+systemctl enable nginx
+echo "<h1>${var.env_label}</h1><p>Deployed with Terraform IaC</p>" > /usr/share/nginx/html/index.html
+EOF
 
   tags = {
     Name      = var.name_tag

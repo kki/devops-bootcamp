@@ -14,3 +14,9 @@ variable "name_tag" {
   type        = string
   default     = "lecture8-server"
 }
+
+variable "env_label" {
+  description = "Environment label shown on the webpage (e.g. DEV, PROD)"
+  type        = string
+  default     = "DEV"
+}

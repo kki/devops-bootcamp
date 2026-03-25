@@ -12,3 +12,14 @@
 
 Перед каждой лекцией:
    git pull upstream main
+
+
+
+aws ec2 import-key-pair \
+  --key-name "terraform-hw-kk-key" \
+  --public-key-material fileb://~/.ssh/terraform-hw-kk-key.pub \
+  --region us-west-2 \
+  --profile pasv-hw
+
+
+  ssh -i ~/.ssh/terraform-hw-kk-key ec2-user@44.245.24.45
