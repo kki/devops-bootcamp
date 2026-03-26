@@ -23,3 +23,6 @@ aws ec2 import-key-pair \
 
 
   ssh -i ~/.ssh/terraform-hw-kk-key ec2-user@44.245.24.45
+
+
+  docker inspect --format='{{json .Config.ExposedPorts}}' redis:7-alpine
