@@ -26,3 +26,7 @@ aws ec2 import-key-pair \
 
 
   docker inspect --format='{{json .Config.ExposedPorts}}' redis:7-alpine
+
+
+# запустить 3 backend
+  ocker compose up -d --scale backend=3
