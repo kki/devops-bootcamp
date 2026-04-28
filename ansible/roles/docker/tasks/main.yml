@@ -1,25 +1,11 @@
 ---
 # Роль: docker
-# Устанавливает Docker CE на Amazon Linux 2023
-
-- name: Установить yum-utils
-  yum:
-    name: yum-utils
-    state: present
-  tags: install
-
-- name: Добавить репозиторий Docker
-  command: yum-config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
-  args:
-    creates: /etc/yum.repos.d/docker-ce.repo   # пропустить если файл уже есть
-  tags: install
+# Устанавливает Docker на Amazon Linux 2023
+# На AL2023 Docker доступен из стандартного репозитория — внешний репозиторий не нужен
 
 - name: Установить Docker
-  yum:
-    name:
-      - docker-ce
-      - docker-ce-cli
-      - containerd.io
+  dnf:
+    name: docker
     state: present
   tags: install
 
@@ -34,5 +20,5 @@
   user:
     name: ec2-user
     groups: docker
-    append: yes   # добавить группу, не заменить существующие
+    append: yes
   tags: install
