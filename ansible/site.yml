@@ -17,9 +17,9 @@
   hosts: web
   become: yes
   vars:
-    docker_hub_user: "username"        # заменить на свой Docker Hub username
-    app_version: "latest"              # или конкретный BUILD_NUMBER: -e "app_version=42"
+    docker_hub_user: "user_name" # заменить на свой Docker Hub username
+    app_version: "latest" # или конкретный BUILD_NUMBER: -e "app_version=42"
 
   roles:
-    - docker   # устанавливает Docker и docker-compose
-    - app      # деплоит devops-bootcamp стек
+    - docker # устанавливает Docker и docker-compose
+    - app # деплоит devops-bootcamp стек
