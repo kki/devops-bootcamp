@@ -14,9 +14,14 @@ provider "aws" {
   profile = "pasv-hw"
 }
 
+resource "aws_key_pair" "this" {
+  key_name   = var.key_name
+  public_key = file("~/.ssh/hw08-key.pub")
+}
+
 module "web_dev" {
   source        = "./modules/ec2"
-  key_name      = var.key_name
+  key_name      = aws_key_pair.this.key_name
   instance_type = "t2.micro"
   name_tag      = "myapp-dev-kk"
   env_label     = "DEV ENVIRONMENT"
@@ -24,7 +29,7 @@ module "web_dev" {
 
 module "web_prod" {
   source        = "./modules/ec2"
-  key_name      = var.key_name
+  key_name      = aws_key_pair.this.key_name
   instance_type = "t2.micro"
   name_tag      = "myapp-prod-kk"
   env_label     = "PROD ENVIRONMENT"
